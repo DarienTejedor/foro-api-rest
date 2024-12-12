@@ -1,0 +1,18 @@
+CREATE TABLE usuario (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    login VARCHAR(255) NOT NULL,
+    clave VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE topico (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    mensaje VARCHAR(1000) NOT NULL,
+    fecha_publicacion TIMESTAMP NOT NULL,
+    estatus BOOLEAN NOT NULL,
+    usuario_id BIGINT NOT NULL,
+    curso VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_usuario FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+
+
